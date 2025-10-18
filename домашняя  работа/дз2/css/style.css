@@ -1,0 +1,74 @@
+body {
+    background: #2e2b2b;
+}
+
+
+li{
+    background: #757272;
+    border-radius: 15px;
+    width: 7vw;
+    height: 4vh;
+    position: relative;
+    border:  5px;
+    border-style: solid;
+    border-color: #393030;
+}
+
+a{
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+/* 1 задание */
+
+
+
+
+.title_block{
+    width: 400px;
+    height: 100px;
+    background: #464242;
+    border-radius: 20px;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    color: #fff;
+    padding-top: 30px;
+}
+
+.title::after {
+    content: '';
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: #ed0808;
+    margin-left: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top:10%;
+    border: 5px;
+    border-color: #a68b8b;
+    border-style: solid;
+}
+
+.title::before {
+    content: '';
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: #271180;
+    margin-right: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top:10%;
+    left: 10%;
+    border: 5px;
+    border-color: #a68b8b;
+    border-style: solid;
+}
+
+
+
