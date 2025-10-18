@@ -1,0 +1,47 @@
+body {
+    background: #3e3a3a;
+}
+
+li{
+    background: #757272;
+    border-radius: 15px;
+    width: 7vw;
+    height: 4vh;
+    position: relative;
+    top: -50%;
+    left: 50%;
+    border:  5px;
+    border-style: solid;
+    border-color: #393030;
+}
+
+a{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+
+.block {
+    width: 50vw;
+    height: 10vh;
+    border-radius: 10px;
+    position: relative;
+    top: 70%;
+    left: 50%;
+    background: #fff;
+    position: fixed;
+}
+
+.podblock {
+    width: 10%;
+    height: 90%;
+    background: #c60c0c;
+    border-radius: 50%;
+    position: relative;
+    left: 15%;
+    bottom: 50%;
+}
+
+.text {
+    width: 200px;
+}
