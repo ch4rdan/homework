@@ -1,0 +1,28 @@
+body {
+    background: #3e3a3a;
+}
+
+.block {
+    width: 50vw;
+    height: 10vh;
+    border-radius: 10px;
+    position: relative;
+    top: 70%;
+    left: 50%;
+    background: #fff;
+    position: fixed;
+}
+
+.podblock {
+    width: 10%;
+    height: 90%;
+    background: #c60c0c;
+    border-radius: 50%;
+    position: relative;
+    left: 15%;
+    bottom: 50%;
+}
+
+.text {
+    width: 200px;
+}
