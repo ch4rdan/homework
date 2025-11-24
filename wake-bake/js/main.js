@@ -1,5 +1,8 @@
 (function () {
 
+
+    // Бургер ==================\
+
     document.addEventListener('click', burgerInit)
 
     function burgerInit(e) {
@@ -17,6 +20,8 @@
         }
 
     }
+
+    // Модалка ====================
 
     const modal = document.querySelector('.modal')
     const modalButton = document.querySelector('.about__img-button')
@@ -36,5 +41,72 @@
         if (target.closest('.modal__cancel') || target.classList.contains('modal')) {
             document.body.classList.remove('body--opened-modal')
         }}
+
+    // Табы ====================
+
+    const tabConrols = document.querySelector('.tab-conrols')
+
+    tabConrols.addEventListener('click', toggleTab)
+
+    function toggleTab(e) {
+
+        const tabControl = e.target.closest('.tab-conrols__link')
+
+        if (!tabControl) return
+        e.preventDefault()
+        if (tabControl.classList.contains('tab-conrols__link--active')) return
+
+        const tabContendID = tabControl.getAttribute('href')
+        const tabContand = document.querySelector(tabContendID)
+        const activeControl = document.querySelector('.tab-conrols__link--active')
+        const activeContend = document.querySelector('.tab-content--show')
+
+        if (activeControl){
+            activeControl.classList.remove('tab-conrols__link--active')
+        }
+
+        if (activeContend){
+            activeContend.classList.remove('tab-content--show')
+        }
+
+        tabControl.classList.add('tab-conrols__link--active')
+        tabContand.classList.add('tab-content--show')
+    }
+
+    // Акордион ===================
+
+    const accordionList = document.querySelectorAll('.accordion-list');
+
+    // document.querySelector('.accordion-list__item--opened .accordion-list__content').style.maxHeight = document.querySelector('.accordion-list__item--opened .accordion-list__content').scrollHeight + 'px';
+    
+    accordionList.forEach(el => {
+
+        el.addEventListener('click', (e) => {
+            
+            const accordionList = e.currentTarget
+            const accordionOpenedItem = accordionList.querySelector('.accordion-list__item--opened');
+            const accordionOpenedContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content');
+            
+            const accordionControl = e.target.closest('.accordion-list__control');
+            if (!accordionControl) return
+            const accordionItem = accordionControl.parentElement;
+            const accordionContent = accordionControl.nextElementSibling;
+    
+            if(accordionOpenedItem && accordionItem != accordionOpenedItem) {
+                accordionOpenedItem.classList.remove('accordion-list__item--opened');
+                accordionOpenedContent.style.maxHeight = null;
+            }
+            accordionItem.classList.toggle('accordion-list__item--opened');
+    
+            if (accordionItem.classList.contains('accordion-list__item--opened')) {
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            } else {
+                accordionContent.style.maxHeight = null;
+            }
+
+        });
+
+    });
+
 })()
 
