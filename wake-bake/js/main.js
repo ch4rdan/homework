@@ -6,7 +6,7 @@
     document.addEventListener('click', burgerInit)
 
     function burgerInit(e) {
-        
+
         const burgerIcon = e.target.closest('.burger-icon')
         const burgerNavLink = e.target.closest('.nav__link')
 
@@ -36,11 +36,12 @@
 
     function closeModal(e) {
         e.preventDefault()
-        
+
         const target = e.target
         if (target.closest('.modal__cancel') || target.classList.contains('modal')) {
             document.body.classList.remove('body--opened-modal')
-        }}
+        }
+    }
 
     // Табы ====================
 
@@ -61,11 +62,11 @@
         const activeControl = document.querySelector('.tab-conrols__link--active')
         const activeContend = document.querySelector('.tab-content--show')
 
-        if (activeControl){
+        if (activeControl) {
             activeControl.classList.remove('tab-conrols__link--active')
         }
 
-        if (activeContend){
+        if (activeContend) {
             activeContend.classList.remove('tab-content--show')
         }
 
@@ -78,26 +79,26 @@
     const accordionList = document.querySelectorAll('.accordion-list');
 
     // document.querySelector('.accordion-list__item--opened .accordion-list__content').style.maxHeight = document.querySelector('.accordion-list__item--opened .accordion-list__content').scrollHeight + 'px';
-    
+
     accordionList.forEach(el => {
 
         el.addEventListener('click', (e) => {
-            
+
             const accordionList = e.currentTarget
             const accordionOpenedItem = accordionList.querySelector('.accordion-list__item--opened');
             const accordionOpenedContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content');
-            
+
             const accordionControl = e.target.closest('.accordion-list__control');
             if (!accordionControl) return
             const accordionItem = accordionControl.parentElement;
             const accordionContent = accordionControl.nextElementSibling;
-    
-            if(accordionOpenedItem && accordionItem != accordionOpenedItem) {
+
+            if (accordionOpenedItem && accordionItem != accordionOpenedItem) {
                 accordionOpenedItem.classList.remove('accordion-list__item--opened');
                 accordionOpenedContent.style.maxHeight = null;
             }
             accordionItem.classList.toggle('accordion-list__item--opened');
-    
+
             if (accordionItem.classList.contains('accordion-list__item--opened')) {
                 accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
             } else {
@@ -108,5 +109,35 @@
 
     });
 
-})()
+    // Слайдер-галлерея
+
+    const swiper = new Swiper('.gallery__slider', {
+
+        spaceBetween: 15,
+        slidesPerView: 1.5,
+
+        pagination: {
+            el: '.gallery__pagination',
+            type: 'fraction',
+        },
+
+        navigation: {
+            nextEl: '.gallery__next',
+            prevEl: '.gallery__prev',
+        },
+
+        breakpoints: {
+            601:{
+                slidesPerView:3,
+            },
+            801: {
+                spaceBetween: 32,
+            },
+            1101: {
+                slidesPerView: 4,
+            }
+        }
+    });
+}) ()
+
 
